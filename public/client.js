@@ -16,6 +16,9 @@ let oppEl = null;
 
 const cardBaseUrl = 'https://www.timeloopinteractive.com/cardpunch/';
 const playArea    = document.getElementById('play-area');
+// Add background image to play area
+playArea.style.background = "url('https://www.timeloopinteractive.com/cardpunch/background.png') no-repeat center center";
+playArea.style.backgroundSize = "400px 400px";
 
 const mainPile    = document.getElementById('draw-pile');
 
