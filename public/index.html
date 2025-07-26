@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cardosseum</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Startup overlay -->
+  <div id="startup-overlay">
+    <div id="startup-content">
+      <img src="https://www.timeloopinteractive.com/cardpunch/cardback2.jpg" alt="Back of card" />
+      <div id="startup-instructions">
+        
+        <h2>CONTROLS [MOUSE/TOUCH]</h2>
+        <ul>
+          
+          <li>- Click/Tap decks to draw cards to hand</li>
+          <li>- Drag cards into the play area</li>
+          <li>- Click/Tap Corner of played cards for larger view</li>
+          <li>- Right Click or Long Press cards to discard back to decks</li>
+          <li>- Drag markers and dice counters</li>
+          <li>- Click dice or tap edge to change their values</li>
+          <li>- Right Click or tap dice to roll random</li>
+          
+        </ul>
+
+        <button id="startup-dismiss">X</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-board">
+   
+    <div id="middle-area">
+      <div id="draw-zone">
+        <img id="draw-pile" src="https://www.timeloopinteractive.com/cardpunch/cardback.jpg" alt="Main deck" />
+        
+      </div>
+      <div id="play-area"></div>
+    </div>
+    <div id="player1-hand" class="hand"></div>
+  </div>
+
+  <div id="overlay">
+    <img src="" alt="card preview" />
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    // Pick or prompt for a room code, expose to client.js
+    const params = new URLSearchParams(location.search);
+    let ROOM = params.get('room');
+    if (!ROOM) {
+      ROOM = prompt('Enter Room Name to Create/Join:','') || 'lobby';
+      location.search = '?room=' + encodeURIComponent(ROOM);
+    }
+    window.GAME_ROOM = ROOM;
+  </script>
+  
+  <script src="client.js"></script>
+</body>
+</html>
+
+
+
+
+

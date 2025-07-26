@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap');
+
+body {
+  margin: 0;
+  background: #3d3d3d;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hand {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+#middle-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+}
+
+#draw-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#draw-pile,
+#draw-pile-2 {
+  width: 70px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.2s ease;
+}
+
+#draw-pile:hover,
+#draw-pile-2:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5),
+              inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+#player1-hand img {
+  width: 70px;
+  cursor: grab;
+}
+
+#play-area {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  background: #2a2a2a;
+  overflow: hidden;
+
+  /* new depth & rounding */
+  border-radius: 16px;
+  box-shadow:
+    0 8px 16px rgba(0,0,0,0.7),    /* outer deep shadow */
+    inset 0 2px 4px rgba(255,255,255,0.1); /* subtle inner highlight */
+}
+
+#play-area .table-card {
+  position: absolute;
+  width: 70px;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+/* Overlay for card preview */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#overlay img {
+  max-width: 80%;
+  max-height: 80%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+/* Red dot */
+.red-dot {
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle at 30% 30%, #ff4d4d, #b20000);
+  border-radius: 50%;
+  position: absolute;
+  cursor: grab;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255,255,255,0.2);
+}
+
+/* Hexagon */
+.hexagon {
+  width: 20px;
+  height: 20px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background: linear-gradient(145deg, #666, #444);
+  border: 1px solid #333;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: grab;
+  z-index: 1000;
+  user-select: none;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.1);
+  font-family: 'Orbitron', monospace;
+}
+
+/* Square */
+.square {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #666, #444);
+  border: 1px solid #333;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: grab;
+  z-index: 1000;
+  user-select: none;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.1);
+  font-family: 'Orbitron', monospace;   /* ultimate fallback */
+}
+
+/* Startup overlay */
+#startup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+#startup-content {
+  text-align: center;
+  color: white;
+}
+#startup-content img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+#startup-content h1 {
+  margin: 0 0 10px;
+}
+#startup-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+#startup-content li {
+  margin: 5px 0;
+}
+#startup-dismiss {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Help button (‘?’) in play area */
+#help-button {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.85);
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  user-select: none;
+}
+
+#play-area {
+  position: relative;
+}
